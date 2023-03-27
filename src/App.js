@@ -1,23 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from 'react';
+import Login from './Components/Login/Login.js';
+import Loading from './Components/Loading/Loading.js';
+import MainMenu from './Components/MainMenu/MainMenu.js';
 
 function App() {
+  const [loading, setLoading] = useState(false);
+  const [mainMenu, setMainMenu] = useState(false);
+  const [player, setPlayer] = useState(null)
+
+  function toggleLoading () {
+    let newLoading = !loading
+    setLogin(newLoading);
+  }
+
+  function getPlayer (url) {
+    fetch(url)
+      .then(setPlayer(newPlayer))
+  }
+
+  if (loading) {
+    return <Loading />
+  }
+
+  if (!player) {
+    return <Login loading={loading} toggleLoading={toggleLoading}
+      player={player} getPlayer={getPlayer}/>
+  }
+
+  if (mainMenu) {
+    return <MainMenu />
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
     </div>
   );
 }
