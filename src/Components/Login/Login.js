@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './login.css';
 import Navigation from '../Navigation/Navigation';
 
-function Login({ loading, toggleLoading, login, toggleLogin}) {
+function Login({ changePlayer}) {
     const [signUp, setSignUp] = useState(false);
 
     function toggleSignUp () {
@@ -10,10 +10,9 @@ function Login({ loading, toggleLoading, login, toggleLogin}) {
         setSignUp(newSignUp);
     }
 
-    function handleLogIn(url) {
-        fetch(url)
-            .then(toggleLoading(loading))
-            .then(toggleLogin(login))
+    const dummyURL = "./Components/Login/dummyPlayer.txt"
+    function handleLogIn() {
+        changePlayer(dummyURL)
     }
 
     return (
@@ -36,7 +35,7 @@ function Login({ loading, toggleLoading, login, toggleLogin}) {
                     <input></input>
                     <p>Password</p>
                     <input></input>
-                    <button onClick={handleLogIn}>Login</button>
+                    <button onClick={handleLogIn()}>Login</button>
                 </div>
             </div>
         </div>

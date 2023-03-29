@@ -25,3 +25,7 @@ button {
     align-items: center;
     flex-direction: column;
 }
+
+.red {
+    color:red;
+}

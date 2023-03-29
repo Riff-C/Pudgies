@@ -1,0 +1,8 @@
+{
+    email: "fake@fake.com"
+    userName: "fake"
+    password: "fake"
+    pudgies: [
+        {}
+    ]
+}
